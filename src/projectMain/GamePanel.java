@@ -194,6 +194,8 @@ public class GamePanel extends JPanel implements Runnable {
         if (keyHandler.checkDrawTime) {
             drawStart = System.nanoTime();
         }
+        graphics2D.setColor(Color.BLACK);
+        graphics2D.fillRect(0, 0, screenWidth, screeHeight);
         //title screen
         if (gameState == titleState) {
             ui.draw(graphics2D);
@@ -203,14 +205,14 @@ public class GamePanel extends JPanel implements Runnable {
             //tile
             tileManager.draw(graphics2D);
             //interactive tile
-//            for (InteractiveTile tile : interactiveTile) {
-//                if (tile != null) {
-//                    tile.draw(graphics2D);
-//                }
-//            }
-            for (int i = 0; i < interactiveTile.length; i++) {
-                if (interactiveTile[i] != null) {
-                    interactiveTile[i].draw(graphics2D);
+//           /*for (InteractiveTile tile : interactiveTile) {
+//               if (tile != null) {
+//                   tile.draw(graphics2D);
+//               }
+//           }*/
+            for (InteractiveTile tile : interactiveTile) {
+                if (tile != null) {
+                    tile.draw(graphics2D);
                 }
             }
             //draw entities
